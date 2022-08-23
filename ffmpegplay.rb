@@ -3,26 +3,8 @@ class Ffmpegplay < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.4.2.tar.xz"
   sha256 "af419a7f88adbc56c758ab19b4c708afbcae15ef09606b82b855291f6a6faa93"
-  # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
-  # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 3
-
-  livecheck do
-    url "https://ffmpeg.org/download.html"
-    regex(/href=.*?ffmpeg[._-]v?(4(?:\.\d+)+)\.t/i)
-  end
-
-  bottle do
-    sha256 arm64_monterey: "45fe3d6bcbed4a82661897100313edef0985cbbfd31c8a26e3d0e8d0cff4ae80"
-    sha256 arm64_big_sur:  "6be8e7871edbbdc8ac4ed06c30aaf0b2ce885a06d228f25b212e8133ae251034"
-    sha256 monterey:       "97d4a31d4b3273635c38fd06d3dcf6476564517c8b8d25e172d97823ceb08cea"
-    sha256 big_sur:        "48bd7a081bda5fa6fa355611e3a2ca7e1b58c34296df821fcaad79bd2068ecf4"
-    sha256 catalina:       "1249b1db3fd4bb13354a11db67c3546f81ef74eafc0b13b671be3828a51ff903"
-    sha256 x86_64_linux:   "d7a6a6e7ed2ce7ad954f05ecd16324c79ffa6cdb7d8a1699c3b8afa6837b675f"
-  end
-
-  keg_only :versioned_formula
+  keg_only "anything that needs this will know where to look"
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
