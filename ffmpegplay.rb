@@ -20,7 +20,6 @@ class Ffmpegplay < Formula
   depends_on "libvpx"
   depends_on "openjpeg"
   depends_on "opus"
-  depends_on "sdl2"
   depends_on "snappy"
   depends_on "srt"
   depends_on "theora"
