@@ -61,10 +61,8 @@ class Ffmpegplay < Formula
 
     # decklink options
     system "./configure", *args
-    system "make"
-    bin.install "ffmpeg" => "ffmpeg-srt"
-    bin.install "ffprobe" => "ffprobe-srt"
-    bin.install "ffplay" => "ffplay-srt"
+    system "make", "install"
+
   end
 
   test do
