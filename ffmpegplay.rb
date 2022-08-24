@@ -12,7 +12,7 @@ class Ffmpegplay < Formula
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
 
-
+  depends_on "KeithTempus/test/sdl202"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "lame"
