@@ -12,7 +12,8 @@ class Ffmpegplay < Formula
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
 
-  depends_on "KeithTempus/test/sdl202"
+  depends_on "KeithTempus/test/sdl@2022"
+  depends_on "amiaopensource/amiaos/decklinksdk"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "lame"
@@ -59,8 +60,17 @@ class Ffmpegplay < Formula
     args << "--enable-libiec61883" if (build.with? "iec61883") && OS.linux?
 
     # decklink options
+    args << "--enable-nonfree"
+    args << "--enable-decklink"
+    args << "--extra-cflags=-I#{HOMEBREW_PREFIX}/include"
+    args << "--extra-ldflags=-L#{HOMEBREW_PREFIX}/include"
+
     system "./configure", *args
-    system "make", "install"
+    system "make"
+
+    bin.install "ffmpeg" => "ffmpeg-srt"
+    bin.install "ffprobe" => "ffprobe-srt"
+    bin.install "ffplay" => "ffplay-srt"
 
   end
 
